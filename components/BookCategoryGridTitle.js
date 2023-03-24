@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, View, Platform } from 'react-native'
 import React from 'react'
 
 
-export default function CategoryGridTitle({ title, color, onPress }) {
+export default function CategoryGridTitle({ title, color, onPress, bgimage }) {
     return (
         <View style={styles.gridItem}>
             <Pressable onPress={onPress} style={({pressed}) =>  [ styles.button, pressed ? styles.buttonPressed : null] }>
@@ -22,7 +22,10 @@ const styles = StyleSheet.create({
         height : 150,
         borderRadius : 8,
         backgroundColor : "white",
-        elevation : 4,
+        elevation : 10, 
+        opacity: 0.6,
+        
+        
        // overflow : 'hidden'
 
     },

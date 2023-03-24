@@ -3,16 +3,16 @@ import Book from '../Models/Book';
 
 
 export const CATEGORIES = [
-  new Category('c1', 'Littérature', '#f5428d'),
-  new Category('c2', 'S.F. & Fantasy', '#f54242'),
-  new Category('c3', 'Policiers', '#f5a442'),
-  new Category('c4', 'Poche', '#f5d142'),
-  new Category('c5', 'Théâtre', '#368dff'),
-  new Category('c6', 'Sciences Humaines', '#41d95d'),
-  new Category('c7', 'Histoire', '#9eecff'),
-  new Category('c8', 'Arts', '#b9ffb0'),
-  new Category('c9', 'Jeunesse', '#ffc7ff'),
-  new Category('c10', 'Voyage/Cuisine', '#47fced')
+  new Category('c1', 'Littérature', '#f5428d', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c2', 'S.F. & Fantasy', '#f54242', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c3', 'Policiers', '#f5a442', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c4', 'Poche', '#f5d142', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c5', 'Théâtre', '#368dff', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c6', 'Sciences Humaines', '#41d95d', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c7', 'Histoire', '#9eecff', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c8', 'Arts', '#b9ffb0', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c9', 'Jeunesse', '#ffc7ff', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg'),
+  new Category('c10', 'Voyage/Cuisine', '#47fced', 'https://www.en-vols.com/wp-content/uploads/afmm/2022/02/livres-ouverts_shutterstock_1840804387.jpg')
 ];
 
 export const BOOKS = [
