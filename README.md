@@ -32,7 +32,7 @@ class Book {
   }
 ```
 
-On se loguera à Firebase, il sera idéal de passer par l'utilisation sous forme d'API REST de l'Authentification Firebase, disponible à [cette adresse](https://firebase.google.com/docs/reference/rest/auth?hl=fr). La sécurisation de vos informations de connexion Firebase passera par un JSON de règles de la base de données dont la structure sera la suivante : 
+On se loguera à Firebase, il sera idéal de passer par l'utilisation sous forme d'API REST de l'Authentification Firebase, disponible à [cette adresse](https://firebase.google.com/docs/reference/rest/auth?hl=fr). La sécurisation de nos informations de connexion Firebase passera par un JSON de règles de la base de données dont la structure sera la suivante : 
 
 ```json
 {
@@ -47,4 +47,5 @@ Les données nécessaires seront également placées dans un fichier à part qui
 
 ---
 
-![example](./assets/home.png)
+![home](https://user-images.githubusercontent.com/90752877/227599198-80abd59c-9ddb-4477-8c6a-2c8f3351c750.png)
+
