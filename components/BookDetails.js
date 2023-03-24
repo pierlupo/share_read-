@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function BookDetails({ author, ReleaseDate, category, summary,  }) {
+export default function BookDetails({ author, releaseDate, category, summary,  }) {
     return (
         <View style={styles.details}>
             <Text style={styles.detailItem}>{author}</Text>
-            <Text style={styles.detailItem}>{ReleaseDate}</Text>
+            <Text style={styles.detailItem}>{releaseDate}</Text>
+            <Text style={styles.detailItem}>{category}</Text>
+            <Text style={styles.detailItem}>{summary}</Text>
+
             <Text style={styles.detailItem}>
                 {category.toUpperCase()}
             </Text>

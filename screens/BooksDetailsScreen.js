@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import React from 'react'
-// import { BOOKS } from '../data/data';
+import { BOOKS } from '../data/data';
 import BookDetails from '../components/BookDetails';
 
 
@@ -14,7 +14,7 @@ export default function BooksDetailScreen({ navigation, route }) {
             <Text style={styles.title}>{myBook.title}</Text>
             <BookDetails
                 author={myBook.author}
-                ReleaseDate={myBook.ReleaseDate}
+                releaseDate={myBook.releaseDate}
                 category={myBook.category}
                 summary={myBook.summary}
                 textStyle={styles.detailText}
