@@ -5,6 +5,7 @@ import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,} 
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
 import CategoriesScreen from './screens/CategoriesScreen';
+import AnimatedTyping from './components/AnimatedTyping';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,10 @@ function App() {
   
   
   return (
+//  <View style={styles.animationContainer}>
 
+//   <AnimatedTyping text={["Welcome on Read and Share...", "dear readers"]} />
+//  </View>
 
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Home'>
@@ -27,6 +31,15 @@ function App() {
 }
 
 const styles = StyleSheet.create({
+
+  animationContainer: { 
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding:16,
+    backgroundColor:"#2C2B3C",
+    color:'White',
+  },
 
 });
 

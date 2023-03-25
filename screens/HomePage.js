@@ -1,5 +1,5 @@
 import {Button, ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
-import AnimatedTyping from '../components/AnimatedTyping';
+import AnimatedTyping from '../components/AnimatedTyping.js';
 import React from 'react';
 import { useState } from 'react';
 
@@ -11,15 +11,16 @@ export default function HomePage({navigation}) {
 
   return (
     <View style={styles.container}>
-      {/* <ImageBackground */}
-        {/* source={require('../assets/bnf-2021-140128md.webp')} */}
-        {/* resizeMode="cover" */}
-        {/* style={styles.img}> */}
+      <ImageBackground
+         source={require('../assets/bnf-2021-140128md.webp')}
+         resizeMode="cover" 
+         style={styles.img}> 
         <View style={styles.animationContainer}>
         <AnimatedTyping text={["Welcome on Read and Share...", "dear readers"]} onComplete={() => setGreetingsCompleted(true) }/>
+        
         {greetingsCompleted ? <Button title="Next" onPress={() => setNextPressed(true)} /> : undefined}
         {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
-        {/* {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} */}
+        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
         </View>
         <Pressable
           style={[
@@ -32,7 +33,7 @@ export default function HomePage({navigation}) {
           onPress={() => navigation.navigate('Log')}>
           <Text style={styles.titlestyle}>Welcome on Read and Share...</Text>
         </Pressable>
-      {/* </ImageBackground> */}
+      </ImageBackground>
     </View>
   );
 }
@@ -42,11 +43,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   animationContainer: { 
-    flex: 1,
+    flex:1,
     justifyContent: 'center',
     alignItems: 'center',
     padding:16,
-    backgroundColor:"#2C2B3C",
+    // backgroundColor:"#2C2B3C",
   },
   titleposition: {
     position: 'absolute',
