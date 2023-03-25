@@ -17,7 +17,7 @@ function App() {
 
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Home'>
-      <Stack.Screen name="Home" component={HomePage} options={{headerShown: true}}/>
+      <Stack.Screen name="Home" component={HomePage} options={{headerShown: false}}/>
       <Stack.Screen name="Log" component={LogPage} options={{title: "Register or LogIn"}} />
       <Stack.Screen name="Categories" component={CategoriesScreen} options={{title: "All Categories"}} />
     </Stack.Navigator>
