@@ -82,7 +82,7 @@ export default function AnimatedTyping(props) {
     }, []);
 
     return (
-        <Text style={styles.text}>
+        <Text style={[styles.text,styles.animationPosition]}>
             {text}
             <Text style={{color: cursorColor, fontSize: 35}}>|</Text>
         </Text>
@@ -97,5 +97,11 @@ let styles = StyleSheet.create({
         alignSelf: "stretch",
         fontFamily: 'cursive',
         fontWeight: 'bold',
-    }
+        textAlign: 'center',
+        padding:25,
+    },
+    animationPosition: {
+        position: 'absolute',
+        bottom:60,
+      },
 })

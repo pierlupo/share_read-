@@ -16,13 +16,15 @@ export default function HomePage({navigation}) {
          resizeMode="cover" 
          style={styles.img}> 
         <View style={styles.animationContainer}>
-        <AnimatedTyping text={["Welcome on Read and Share...", "dear readers"]} onComplete={() => setGreetingsCompleted(true) }/>
-        
-        {greetingsCompleted ? <Button title="Next" onPress={() => setNextPressed(true)} /> : undefined}
+        <AnimatedTyping text={["Welcome on Read and Share..."/*, "dear readers"*/]} onComplete={() => setGreetingsCompleted(true) }/>
+        <Pressable>                     
+        {greetingsCompleted ? <Button title="next" onPress={() => setNextPressed(true)}/> : undefined}
+        {greetingsCompleted ? <Text style={styles.btnNextPosition} onPress={() => setNextPressed(true)}>Press me</Text> : undefined}
+        </Pressable>  
         {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
-        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
+        {/* {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} */}
         </View>
-        <Pressable
+        {/* <Pressable
           style={[
             styles.titleposition,
             ({pressed}) => [
@@ -30,9 +32,9 @@ export default function HomePage({navigation}) {
               pressed ? styles.buttonPressed : null,
             ],
           ]}
-          onPress={() => navigation.navigate('Log')}>
+          onPress={() => navigation.navigate('Categories')}>
           <Text style={styles.titlestyle}>Welcome on Read and Share...</Text>
-        </Pressable>
+        </Pressable> */}
       </ImageBackground>
     </View>
   );
@@ -61,6 +63,10 @@ const styles = StyleSheet.create({
     color: 'black',
     padding:30,
 
+  },
+  btnNextPosition : {
+    position: 'absolute',
+    bottom:0,
   },
   button: {
     flex: 1,

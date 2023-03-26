@@ -2,29 +2,32 @@ import { StyleSheet, Text, View, Animated, Button } from 'react-native';
 import React from 'react';
 import AnimatedTyping from '../components/AnimatedTyping';
 import { useState } from 'react';
+import SignForm from '../store/redux/auth/SignForm';
+import { removeUser, signIn, signUp } from '../store/redux/auth/authSlice';
+import { useSelector, useDispatch} from "react-redux";
+
 export default function LogPage() {
 
-  const [greetingsCompleted, setGreetingsCompleted] = useState(false)
-  const [nextPressed, setNextPressed] = useState(false)
+  const user = useSelector(state => state.auth.user)
+  const [signFormMode, setSignFormMode] = useState("")
+  const dispatch = useDispatch()
 
+  const onSigningHandler = async (credentials) => {
+    if (signFormMode === "Sign In") {
+      await dispatch(signIn(credentials))
+    } else if (signFormMode === "Sign Up") {
+      await dispatch(signUp(credentials))
+    }
 
+    setSignFormMode("")
+  }
   return (
-    <View style={styles.animationContainer}>
-      <AnimatedTyping text={["Welcome on Read and Share...", "dear readers"]} onComplete={() => setGreetingsCompleted(true) }/>
-        {greetingsCompleted ? <Button title="Next" onPress={() => setNextPressed(true)} /> : undefined}
-        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} 
-        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
-    </View>
+    <SignForm mode={signFormMode} onSubmit={onSigningHandler} />
+    
   )
 }
 
 const styles = StyleSheet.create({
 
-  animationContainer: { 
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding:16,
-    backgroundColor:"#2C2B3C",
-  },
+ 
 })
