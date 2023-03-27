@@ -9,13 +9,14 @@ const ActionBarImage = () => {
   return (
     <View style={{flexDirection: 'row'}}>
       <Image
-        source={require('./assets/user.png')}
+        source={require('./assets/images.jpg')}
         style={{
-          width: 40,
-          height: 40,
-          borderRadius: 40 / 2,
+          width: 36,
+          height: 36,
+          borderRadius: 36 / 2,
           marginLeft: 15,
           marginRight: 15,
+          // filter: invert(1),
         }}
       />
     </View>

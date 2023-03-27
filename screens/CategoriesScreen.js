@@ -8,7 +8,7 @@ export default function CategoriesScreen({ navigation }) {
     
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.containerimg} source={require('../assets/books-1655783_960_720.jpg')} resizeMode="cover">
+      <ImageBackground style={styles.containerimg} source={require('../assets/8e28da_e9682dda7b2a4d928192ff6a3fafdf6d~mv2.webp')} resizeMode="cover">
       <FlatList data={CATEGORIES} 
     keyExtractor={(item) => item.id}
     renderItem={(itemData) => {

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         flex : 1,
         marginLeft : "auto",
         marginRight : "auto",
-        marginTop: 20,
+        marginTop: 50,
         marginBottom: 10,
         height : 120,
         width: 120,

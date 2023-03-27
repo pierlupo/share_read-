@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,Image} from 'react-native';
+import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,Image, ImageBackground} from 'react-native';
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
 import CategoriesScreen from './screens/CategoriesScreen';
@@ -18,19 +18,31 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   return (
-      <Drawer.Navigator options={{headerRight: ()=> <ActionBarImage />}} screenOptions={{
-        headerStyle: {backgroundColor: '#f4511e'},
-        headerTintColor: '#fff',
-        headerRight: ()=> <ActionBarImage />
-        
+      <Drawer.Navigator screenOptions={{
+        headerStyle: [{backgroundColor: '#9B9B93'},{opacity: 0.8}],
+        headerTintColor: '#39393A',
+        headerTitleStyle: {fontFamily: 'cursive', fontWeight: 'bold', fontSize: 30},
+        headerRight: ()=> <ActionBarImage />,
+        // headerTitle: (props) => <ImgHeader {...props} />
+        headerTransparent: true,
+        headerTitleAlign: "center",
       }}>
-          <Drawer.Screen name="Home" component={HomePage}  options={{headerShown: true, headerTitleAlign: "center"}} />
+          <Drawer.Screen name="Home" component={HomePage}  options={{headerShown: true,  }} />
           <Drawer.Screen name="Categories" component={CategoriesScreen} options={{ title: 'All Categories' }} />
           <Drawer.Screen name="Log" component={LogPage} options={{ title: 'Register or LogIn' }} />
       </Drawer.Navigator>
   )
 
 }
+
+// function ImgHeader() {
+//   return (
+//     <Image
+//       style={{ flex:1, width:50 }}
+//       source={require('./assets/livres-ouverts_shutterstock_1840804387.jpg')}
+//     />
+//   );
+// }
 
 function App() {
   
