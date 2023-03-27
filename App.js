@@ -11,7 +11,7 @@ import { Provider, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers'
 import ActionBarImage from './ActionBarImage'
-
+import { DrawerContent } from './screens/DrawerContent';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -32,7 +32,7 @@ const CustomDrawerComponent = props => (
 
 function DrawerNavigator() {
   return (
-      <Drawer.Navigator screenOptions={{
+      <Drawer.Navigator drawerContent={() => <DrawerContent />} screenOptions={{
         headerStyle: [{backgroundColor: '#9B9B93'},{opacity: 0.8}],
         headerTintColor: '#39393A',
         headerTitleStyle: {fontFamily: 'cursive', fontWeight: 'bold', fontSize: 30},
