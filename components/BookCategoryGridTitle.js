@@ -18,16 +18,17 @@ export default function CategoryGridTitle({ title, color, onPress, bgimage }) {
 const styles = StyleSheet.create({
     gridItem : {
         flex : 1,
-        margin : 16,
-        height : 150,
-        borderRadius : 8,
+        marginLeft : "auto",
+        marginRight : "auto",
+        marginTop: 20,
+        marginBottom: 10,
+        height : 120,
+        width: 120,
+        borderRadius : 60,
         backgroundColor : "white",
         elevation : 10, 
-        opacity: 0.6,
-        
-        
+        opacity: 0.5,
        // overflow : 'hidden'
-
     },
     button : {
         flex : 1,
@@ -37,13 +38,16 @@ const styles = StyleSheet.create({
     },
     innerContainer : {
         flex : 1,
-        padding : 16,
-        borderRadius : 8,
+        padding : 10,
+        height : 120,
+        width: 120,
+        borderRadius : 60,
         justifyContent : "center",
         alignItems : "center",
     },
     title : {
+        color: 'black',
         fontWeight : 'bold',
-        fontSize : Platform.OS === 'android' ? 20 : 30,
+        fontSize : Platform.OS === 'android' ? 18 : 25,
     }
 })

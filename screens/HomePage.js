@@ -2,6 +2,8 @@ import {Button, ImageBackground, Pressable, StyleSheet, Text, View} from 'react-
 import AnimatedTyping from '../components/AnimatedTyping.js';
 import React from 'react';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers'
 
 export default function HomePage({navigation}) {
 
@@ -11,17 +13,17 @@ export default function HomePage({navigation}) {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-         source={require('../assets/bnf-2021-140128md.webp')}
+    {/* <FontAwesomeIcon icon={faUsers} /> */}
+     <ImageBackground source={require('../assets/bnf-2021-140128md.webp')}
          resizeMode="cover" 
          style={styles.img}> 
         <View style={styles.animationContainer}>
         <AnimatedTyping text={["Welcome on Read and Share..."/*, "dear readers"*/]} onComplete={() => setGreetingsCompleted(true) }/>
-        <Pressable>                     
+        {/* <Pressable  style={styles.animationContainer}>                     
         {greetingsCompleted ? <Button title="next" onPress={() => setNextPressed(true)}/> : undefined}
-        {greetingsCompleted ? <Text style={styles.btnNextPosition} onPress={() => setNextPressed(true)}>Press me</Text> : undefined}
-        </Pressable>  
-        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
+        {greetingsCompleted ? <Text  style={styles.animationContainer} onPress={() => setNextPressed(true)}>Press me</Text> : undefined}
+        </Pressable>   */}
+        {/* {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} */}
         {/* {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} */}
         </View>
         {/* <Pressable
@@ -40,4 +42,22 @@ export default function HomePage({navigation}) {
   );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+  container: {
+    flex:1,
+
+  },
+  img: {
+    flex:1,
+  },
+  animationContainer: {
+    flex:1,
+    position: "relative",
+    bottom: 20,
+  }
+
+
+
+
+})
