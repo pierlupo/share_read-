@@ -1,11 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView,ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,Image, ImageBackground} from 'react-native';
+import {SafeAreaView, DrawerLayoutAndroid, ScrollView,StatusBar,StyleSheet,Text,useColorScheme,View,Image, ImageBackground, Dimensions} from 'react-native';
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
 import CategoriesScreen from './screens/CategoriesScreen';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItems } from '@react-navigation/drawer';
 import { store } from './store/redux/store';
 import { Provider, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -15,6 +15,20 @@ import ActionBarImage from './ActionBarImage'
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const CustomDrawerComponent = props => (
+  <SafeAreaView style={{ flex: 1 }}>
+    <ImageBackground source={require("./assets/prateek-katyal-yzgqvasemk-unsplash-60ed9af66d911810283255.webp")}  style={styles.Backgroundcontainer}>
+    {/* <Image
+      source={require("./assets/images/logo.png")}
+      style={{ height: 120, width: 120, borderRadius: 0 , marginTop:20 }}
+    /> */}
+    <ScrollView>
+      <DrawerItems {...props} />
+    </ScrollView>
+    </ImageBackground>
+  </SafeAreaView>
+);
 
 function DrawerNavigator() {
   return (
@@ -26,6 +40,23 @@ function DrawerNavigator() {
         // headerTitle: (props) => <ImgHeader {...props} />
         headerTransparent: true,
         headerTitleAlign: "center",
+        drawerPosition :'left',
+        drawerWidth:  '100%'/*Dimensions.get('window').width / 2.0*/,
+        drawerBackgroundColor : 'grey',
+        contentOptions: {
+          activeTintColor: 'black',
+          activeBackgroundColor : 'transparent',
+          inactiveTintColor : 'black',
+          itemsContainerStyle: {
+            marginVertical: 0,
+          },
+          iconContainerStyle: {
+            opacity: 1
+          },
+          itemStyle :{
+            height : 50,
+          }
+        }
       }}>
           <Drawer.Screen name="Home" component={HomePage}  options={{headerShown: true,  }} />
           <Drawer.Screen name="Categories" component={CategoriesScreen} options={{ title: 'All Categories' }} />
@@ -45,7 +76,9 @@ function DrawerNavigator() {
 // }
 
 function App() {
-  
+
+  //const drawerrr = useRef(null)
+
   return (
     <Provider store={store}>
     <NavigationContainer>
