@@ -1,46 +1,43 @@
-import { StyleSheet, Text, View, ImageBackground } from 'react-native'
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import LogPage from './LogPage';
-import BooksPage from './BooksPage';
+import {Button, ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
+import AnimatedTyping from '../components/AnimatedTyping.js';
+import React from 'react';
+import { useState } from 'react';
 
+export default function HomePage({navigation}) {
 
-export default function HomePage() {
-
-
-  const Tab = createBottomTabNavigator()
-  //const image = {uri: '../assets/'};
+  const [greetingsCompleted, setGreetingsCompleted] = useState(false)
+  const [nextPressed, setNextPressed] = useState(false)
 
 
   return (
-    <>
-    {/* <Tab.Navigator >
-    <Tab.Screen name="Home" component={HomePage} />
-    <Tab.Screen name="Log" component={LogPage}/>
-    <Tab.Screen name="BooksPage" component={BooksPage}/>
-    </Tab.Navigator> */}
-
-    <View  style={styles.container}>
-      <ImageBackground source={require('../assets/20220202165900000000_pas_1911.jpg')} resizeMode="cover" style={styles.image}>
-      <Text style={styles.text}>Bienvenue sur Share Read</Text>
-    </ImageBackground>
-
+    <View style={styles.container}>
+      <ImageBackground
+         source={require('../assets/bnf-2021-140128md.webp')}
+         resizeMode="cover" 
+         style={styles.img}> 
+        <View style={styles.animationContainer}>
+        <AnimatedTyping text={["Welcome on Read and Share..."/*, "dear readers"*/]} onComplete={() => setGreetingsCompleted(true) }/>
+        <Pressable>                     
+        {greetingsCompleted ? <Button title="next" onPress={() => setNextPressed(true)}/> : undefined}
+        {greetingsCompleted ? <Text style={styles.btnNextPosition} onPress={() => setNextPressed(true)}>Press me</Text> : undefined}
+        </Pressable>  
+        {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined}
+        {/* {nextPressed ? <AnimatedTyping text={["un autre texte à définir"]} /> : undefined} */}
+        </View>
+        {/* <Pressable
+          style={[
+            styles.titleposition,
+            ({pressed}) => [
+              styles.button,
+              pressed ? styles.buttonPressed : null,
+            ],
+          ]}
+          onPress={() => navigation.navigate('Categories')}>
+          <Text style={styles.titlestyle}>Welcome on Read and Share...</Text>
+        </Pressable> */}
+      </ImageBackground>
     </View>
-    </>
-  )
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'white',
-    fontSize: 50,
-    textAlign: 'center',
-  }
-})
+const styles = StyleSheet.create({})
