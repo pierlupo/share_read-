@@ -5,58 +5,51 @@ import {SafeAreaView, DrawerLayoutAndroid, ScrollView,StatusBar,StyleSheet,Text,
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
 import CategoriesScreen from './screens/CategoriesScreen';
-import { createDrawerNavigator, DrawerItems } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItem, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { store } from './store/redux/store';
 import { Provider, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers'
 import ActionBarImage from './ActionBarImage'
-import { DrawerContent } from './screens/DrawerContent';
+
+// import { DrawerContent } from './screens/DrawerContent';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const CustomDrawerComponent = props => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <ImageBackground source={require("./assets/prateek-katyal-yzgqvasemk-unsplash-60ed9af66d911810283255.webp")}  style={styles.Backgroundcontainer}>
-    {/* <Image
-      source={require("./assets/images/logo.png")}
-      style={{ height: 120, width: 120, borderRadius: 0 , marginTop:20 }}
-    /> */}
-    <ScrollView>
-      <DrawerItems {...props} />
-    </ScrollView>
-    </ImageBackground>
-  </SafeAreaView>
-);
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Help"
+        onPress={() => Linking.openURL('https://mywebsite.com/help')}
+        
+      />
+    </DrawerContentScrollView>
+  );
+}
 
 function DrawerNavigator() {
   return (
-      <Drawer.Navigator drawerContent={() => <DrawerContent />} screenOptions={{
+      <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent  {...props} />} screenOptions={{
         headerStyle: [{backgroundColor: '#9B9B93'},{opacity: 0.8}],
-        headerTintColor: '#39393A',
+        headerTintColor: 'black',
         headerTitleStyle: {fontFamily: 'cursive', fontWeight: 'bold', fontSize: 30},
         headerRight: ()=> <ActionBarImage />,
         // headerTitle: (props) => <ImgHeader {...props} />
         headerTransparent: true,
         headerTitleAlign: "center",
-        drawerPosition :'left',
-        drawerWidth:  '100%'/*Dimensions.get('window').width / 2.0*/,
-        drawerBackgroundColor : 'grey',
-        contentOptions: {
-          activeTintColor: 'black',
-          activeBackgroundColor : 'transparent',
-          inactiveTintColor : 'black',
-          itemsContainerStyle: {
-            marginVertical: 0,
-          },
-          iconContainerStyle: {
-            opacity: 1
-          },
-          itemStyle :{
-            height : 50,
-          }
-        }
+        drawerPosition :'right',
+        drawerType: "back",
+        drawerActiveBackgroundColor : 'grey',
+        drawerStyle: {
+          backgroundColor: '#c6cbef',
+          width: '100%',
+          // drawerWidth:  Dimensions.get('window').width / 2.0,
+        },
+        
+        
       }}>
           <Drawer.Screen name="Home" component={HomePage}  options={{headerShown: true,  }} />
           <Drawer.Screen name="Categories" component={CategoriesScreen} options={{ title: 'All Categories' }} />

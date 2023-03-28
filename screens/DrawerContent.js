@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet,Image,ImageBackground } from "react-native";
 import { DrawerItem, DrawerContentScrollView } from "@react-navigation/drawer";
 import {  Avatar,  Title,  Caption,  Drawer, } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export function DrawerContent(props) {
   return (
