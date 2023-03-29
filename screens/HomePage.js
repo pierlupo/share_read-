@@ -1,4 +1,4 @@
-import {Button, ImageBackground, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Button, ImageBackground, Pressable, StyleSheet, Text, View, Icon} from 'react-native';
 import AnimatedTyping from '../components/AnimatedTyping.js';
 import React from 'react';
 import { useState } from 'react';

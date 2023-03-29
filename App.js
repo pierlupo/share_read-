@@ -28,7 +28,7 @@ import {Provider, useSelector} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faUsers} from '@fortawesome/free-solid-svg-icons/faUsers';
 import ActionBarImage from './ActionBarImage';
-
+import Icon from 'react-native-vector-icons/FontAwesome5'
 // import { DrawerContent } from './screens/DrawerContent';
 
 const Stack = createNativeStackNavigator();
@@ -45,8 +45,9 @@ function CustomDrawerContent(props) {
       <DrawerContentScrollView style={{flex:1}} {...props}>
         <DrawerItemList {...props} />
         <DrawerItem 
-          label="Help"
+         label="Help"
           onPress={() => Linking.openURL('https://mywebsite.com/help')}
+        
         />
       </DrawerContentScrollView>
       </ImageBackground>
@@ -65,7 +66,7 @@ function DrawerNavigator() {
         headerTitleStyle: {
           fontFamily: 'cursive',
           fontWeight: 'bold',
-          fontSize: 30,
+          fontSize: 35,
         },
         headerRight: () => <ActionBarImage />,
         // headerTitle: (props) => <ImgHeader {...props} />
@@ -79,21 +80,36 @@ function DrawerNavigator() {
           width: '100%',
           // drawerWidth:  Dimensions.get('window').width / 2.0,
         },
+        
       }}>
       <Drawer.Screen
         name="Home"
         component={HomePage}
-        options={{headerShown: true}}
+        options={{headerShown: true,
+        // drawerItemStyle: {backgroundColor: 'red'},
+        drawerLabelStyle: {fontSize: 20},
+        drawerLabelStyle: [{textAlign: "center"},]
+  //       drawerIcon: () => (
+  //         <Icon
+  //           source={require('./assets/home.png')}
+  //           style={[styles.iconStyles, { tintColor: 'black' }]}
+  //         /> 
+  // )
+}}
       />
       <Drawer.Screen
         name="Categories"
         component={CategoriesScreen}
-        options={{title: 'All Categories'}}
+        options={{title: 'All Categories',
+        drawerLabelStyle: {fontSize: 20},
+      }}
       />
       <Drawer.Screen
         name="Log"
         component={LogPage}
-        options={{title: 'Register or LogIn'}}
+        options={{title: 'Register or LogIn',
+        drawerLabelStyle: {fontSize: 20},
+      }}
       />
     </Drawer.Navigator>
   );
@@ -150,6 +166,11 @@ const styles = StyleSheet.create({
     flex: 1,
     // height: '100%',
   },
+  iconStyles: {
+    width: 24,
+    height: 24,
+
+  }
 });
 
 export default App;
