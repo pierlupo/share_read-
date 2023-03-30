@@ -14,6 +14,7 @@ import {
   ImageBackground,
   Dimensions,
   TouchableOpacity,
+  ImageBackgroundComponent,
 } from 'react-native';
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
@@ -63,7 +64,7 @@ function CustomDrawerContent(props) {
               <Text>John Doe</Text>
               <Text>email@example.com</Text>
               <Image
-                source={require('./assets/user.png')}
+                source={require('./assets/Sanstitre.png')}
                 style={{width: 60, height: 60, borderRadius: 30}}
               />
             </View>
@@ -77,8 +78,13 @@ function CustomDrawerContent(props) {
           />
   
         </DrawerContentScrollView>
-        <TouchableOpacity style={{position:"absolute", right: 0, left: 0, bottom: 50, backgroundColor: '#f6f6f6', padding: 20}}>
-        <Text>Log Out</Text>
+        <TouchableOpacity style={{position:"absolute", right: 0, left: 0, bottom: 50, padding: 20}}>
+        <View style={{flexDirection: 'row'}}>
+        <Image
+                source={require('./assets/logout1.jpg')}
+                style={{width: 24, height: 24, borderRadius: 12, marginLeft:21}}
+              /><Text style={[{color: 'white'}, {fontSize:20}, {marginLeft: 40}, {fontWeight: '600'}]}>Log Out</Text>
+        </View>
         </TouchableOpacity>
       </ImageBackground>
     </View>
@@ -117,19 +123,42 @@ function DrawerNavigator() {
           headerShown: true,
           // drawerItemStyle: {backgroundColor: 'red'},
           //drawerLabelStyle: {fontSize: 20},
-          drawerLabelStyle: {textAlign: 'center'},
-          drawerIcon: ({}) => <Icon source={require('./assets/home.png')} />,
-        }}
+          drawerLabelStyle: [{fontSize: 20}, {color: "white"}],
+          drawerIcon: ({ focused, size }) => 
+            <ImageBackground
+              source={require('./assets/home.png')}
+              style={styles.iconimg}
+              imageStyle={{ borderRadius: 12}}
+            />,
+  }}
       />
       <Drawer.Screen
         name="Categories"
         component={CategoriesScreen}
-        options={{title: 'All Categories', drawerLabelStyle: {fontSize: 20}}}
+        options={{
+        //title: 'All Categories',
+        drawerLabelStyle: [{fontSize: 20}, {color: "white"}],
+        drawerIcon: () => 
+        <ImageBackground
+              source={require('./assets/search.jpg')}
+              style={styles.iconimg}
+              imageStyle={{ borderRadius: 12}}
+            />,
+      }}
       />
       <Drawer.Screen
-        name="Log"
+        name="Notifications"
         component={LogPage}
-        options={{title: 'Register or LogIn', drawerLabelStyle: {fontSize: 20}}}
+        options={{
+        //title: 'Register or LogIn',
+        drawerLabelStyle: [{fontSize: 20}, {color: "white"}],
+        drawerIcon: () => 
+        <ImageBackground
+              source={require('./assets/notif.jpg')}
+              style={styles.iconimg}
+              imageStyle={{ borderRadius: 12}}
+            />,
+      }}
       />
     </Drawer.Navigator>
   );
@@ -185,9 +214,10 @@ const styles = StyleSheet.create({
     flex: 1,
     // height: '100%',
   },
-  iconStyles: {
+  iconimg: {
     width: 24,
     height: 24,
+    //backgroundColor: 'white',
   },
 });
 
