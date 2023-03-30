@@ -15,6 +15,7 @@ import {
   Dimensions,
   TouchableOpacity,
   ImageBackgroundComponent,
+  Pressable,
 } from 'react-native';
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
@@ -31,12 +32,14 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faUsers} from '@fortawesome/free-solid-svg-icons/faUsers';
 import ActionBarImage from './ActionBarImage';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native'
 // import { DrawerContent } from './screens/DrawerContent';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function CustomDrawerContent(props) {
+  const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
             <ImageBackground
@@ -79,12 +82,14 @@ function CustomDrawerContent(props) {
   
         </DrawerContentScrollView>
         <TouchableOpacity style={{position:"absolute", right: 0, left: 0, bottom: 50, padding: 20}}>
+        <Pressable onPress={() => navigation.navigate('Home')}>
         <View style={{flexDirection: 'row'}}>
         <Image
                 source={require('./assets/logout1.jpg')}
                 style={{width: 24, height: 24, borderRadius: 12, marginLeft:21}}
               /><Text style={[{color: 'white'}, {fontSize:20}, {marginLeft: 40}, {fontWeight: '600'}]}>Log Out</Text>
         </View>
+        </Pressable>
         </TouchableOpacity>
       </ImageBackground>
     </View>
