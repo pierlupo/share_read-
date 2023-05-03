@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import HomePage from './screens/HomePage';
 import LogPage from './screens/LogPage';
+import NotifPage from './screens/NotifPage';
 import CategoriesScreen from './screens/CategoriesScreen';
 import {
   createDrawerNavigator,
@@ -26,7 +27,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {store} from './store/redux/store';
+import {store} from './store/redux/Store';
 import {Provider, useSelector} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faUsers} from '@fortawesome/free-solid-svg-icons/faUsers';
@@ -98,6 +99,7 @@ function CustomDrawerContent(props) {
 
 function DrawerNavigator() {
   return (
+    
     <Drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
@@ -121,6 +123,7 @@ function DrawerNavigator() {
           // drawerWidth:  Dimensions.get('window').width / 2.0,
         },
       }}>
+
       <Drawer.Screen
         name="Home"
         component={HomePage}
@@ -137,6 +140,22 @@ function DrawerNavigator() {
             />,
   }}
       />
+
+      <Drawer.Screen
+        name="Profil"
+        component={LogPage}
+        options={{
+        //title: 'Register or LogIn',
+        drawerLabelStyle: [{fontSize: 20}, {color: "white"}],
+        drawerIcon: () => 
+        <ImageBackground
+              source={require('./assets/user.png')}
+              style={styles.iconimg}
+              imageStyle={{ borderRadius: 12}}
+            />,
+      }}
+      />
+
       <Drawer.Screen
         name="Categories"
         component={CategoriesScreen}
@@ -151,9 +170,10 @@ function DrawerNavigator() {
             />,
       }}
       />
+
       <Drawer.Screen
         name="Notifications"
-        component={LogPage}
+        component={NotifPage}
         options={{
         //title: 'Register or LogIn',
         drawerLabelStyle: [{fontSize: 20}, {color: "white"}],
@@ -165,6 +185,8 @@ function DrawerNavigator() {
             />,
       }}
       />
+
+
     </Drawer.Navigator>
   );
 }
@@ -198,6 +220,11 @@ function App() {
             name="Categories"
             component={CategoriesScreen}
             options={{title: 'All Categories'}}
+          />
+          <Stack.Screen
+            name="Notif"
+            component={NotifPage}
+            options={{title: 'Notifications'}}
           />
         </Stack.Navigator>
       </NavigationContainer>

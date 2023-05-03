@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
         height : 120,
         width: 120,
         borderRadius : 60,
-        backgroundColor : "white",
+        // backgroundColor : "white",
         elevation : 10, 
-        opacity: 0.5,
+        opacity: 0.9,
        // overflow : 'hidden'
     },
     button : {

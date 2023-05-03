@@ -1,6 +1,6 @@
 import { FlatList, Platform, StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { CATEGORIES } from '../data/data'
+import { CATEGORIES } from '../data/Data'
 import CategoryGridTitle from '../components/BookCategoryGridTitle'
 export default function CategoriesScreen({ navigation }) {
 

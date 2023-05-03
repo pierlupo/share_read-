@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 // import updateAction from "./actions";
-import { removeUser, signIn, signUp } from "./authSlice";
+import { removeUser, signIn, signUp } from "./AuthSlice";
 
 export default function SignForm(props) {
   const { register, handleSubmit, setValue } = useForm({
@@ -14,11 +14,12 @@ export default function SignForm(props) {
   const onSubmit = data => props.signIn(data);
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("pseudo")} />
-      <input {...register("email")} />
-      <input type="submit" />
-    </form>
+    // <form onSubmit={handleSubmit(onSubmit)}>
+    //   <input {...register("pseudo")} />
+    //   <input {...register("email")} />
+    //   <input type="submit" />
+    // </form>
+    <></>
   );
 }
 

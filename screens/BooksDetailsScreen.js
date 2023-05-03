@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import React from 'react'
-import { BOOKS } from '../data/data';
+import { BOOKS } from '../data/Data';
 import BookDetails from '../components/BookDetails';
 
 

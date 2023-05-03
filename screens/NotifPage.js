@@ -6,7 +6,7 @@ import SignForm from '../store/redux/auth/SignForm';
 import { removeUser, signIn, signUp } from '../store/redux/auth/AuthSlice';
 import { useSelector, useDispatch} from "react-redux";
 
-export default function LogPage() {
+export default function NotifPage() {
 
   const user = useSelector(state => state.auth.user)
   const [signFormMode, setSignFormMode] = useState("")
